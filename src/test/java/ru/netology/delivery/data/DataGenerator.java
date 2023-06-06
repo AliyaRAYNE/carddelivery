@@ -13,7 +13,7 @@ public class DataGenerator {
         return java.time.LocalDate.now()
                 .plusDays(shift).format(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
-    public static String generateCity(String locale) {
+    public static String generateCity(String ignoredLocale) {
         var cities = new String[]{"Уфа", "Киров", "Йошкар-Ола", "Саранск", "Нижний Новгород",
                 "Оренбург", "Пенза", "Пермь", "Самара", "Саратов", "Казань", "Ижевск", "Ульяновск", "Чебоксары", "Курган",
                 "Екатеринбург", "Тюмень", "Ханты-мансийск", "Челябиннск", "Салехард"
@@ -35,8 +35,7 @@ public class DataGenerator {
             String city = generateCity(locale);
             String name = generateName(locale);
             String phone = generatePhone(locale);
-            UserInfo user = new UserInfo(city, name, phone);
-            return user;
+            return new UserInfo(city, name, phone);
         }
     }
     @Value

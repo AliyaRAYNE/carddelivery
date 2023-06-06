@@ -1,4 +1,5 @@
 package ru.netology.delivery.test;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
@@ -14,6 +15,7 @@ class DeliveryTest {
     @Test
     @DisplayName("Should successful plan and replan meeting")
     void shouldSuccessfulPlanAndReplanMeeting() {
+        Configuration.holdBrowserOpen=true;
         var validUser = DataGenerator.Registration.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
